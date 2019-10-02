@@ -1,0 +1,12 @@
+.posts{
+    color: white;
+}
+
+.item{
+    text-align: left;
+    line-height: 30px;
+}
+
+.item img{
+    width: 50px;
+}
