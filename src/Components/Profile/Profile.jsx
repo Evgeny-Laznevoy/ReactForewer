@@ -1,11 +1,12 @@
 import React from 'react'
 import MyPosts from './MyPosts/MyPosts'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 const Profile = () => {
     return <div className='Profile'>
         <div>
-            <a> My Profile</a>
-            <MyPosts/>
+            <ProfileInfo />
+            <MyPosts />
         </div>
     </div>
 }

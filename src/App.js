@@ -15,7 +15,7 @@ function App() {
         <Navbar />
         <div>
           <Route path='/dialogs' component={Dialogs} />
-          <Route path='/profile'  component={Profile} />
+          <Route path='/profile' component={Profile} />
         </div>
         <Footer />
       </div>

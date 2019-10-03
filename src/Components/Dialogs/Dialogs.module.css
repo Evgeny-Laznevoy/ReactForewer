@@ -1,0 +1,22 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+    padding: 10px;
+}
+
+.gialogs_item a {
+    text-decoration: none;
+    color: black;
+}
+
+.dialog{
+    
+}
+
+.messages a{
+    
+}
+
+.message{
+
+}
