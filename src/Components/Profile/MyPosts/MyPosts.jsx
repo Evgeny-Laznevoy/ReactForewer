@@ -2,14 +2,17 @@ import React from 'react'
 import s from './MyPosts.module.css'
 import Post from './Post/Post'
 
-let PostsData = [
-    { id: 1, post: 'My first post' },
-    { id: 2, post: 'hi!!!' },
-]
+// let PostsData = [
+//     { id: 1, post: 'My first post' },
+//     { id: 2, post: 'hi!!!' },
+// ]
 
-let posts = PostsData.map(post => <Post text={post.post} />)
 
-const MyPosts = () => {
+
+const MyPosts = (props) => {
+
+    let posts = props.posts.posts.map( p => <Post text={p.post} />)
+
     return <div>
         <div>
             My posts
@@ -22,16 +25,9 @@ const MyPosts = () => {
             <button>Remove</button>
         </div>
         <div className={`${s.posts} + ' ' + ${s.item}`}>
-            {posts[0]}
-        </div>
-        <div className={s.item}>
-            {posts[1]}
+            {posts}
         </div>
     </div>
 }
 
 export default MyPosts
-
-// button.onClick = function() {
-
-// }

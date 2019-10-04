@@ -7,15 +7,17 @@ import Footer from './Components/Footer/Footer'
 import Dialogs from './Components/Dialogs/Dialogs'
 import { BrowserRouter, Route } from "react-router-dom"
 
-function App() {
+function App(props) {
+
+  // let app = props.AppState.profilePage
   return (
     <BrowserRouter>
       <div className="App">
         <Header />
         <Navbar />
         <div>
-          <Route path='/dialogs' component={Dialogs} />
-          <Route path='/profile' component={Profile} />
+          <Route path='/dialogs' render={ () => <Dialogs messagePages={props.AppState.messagesPage} />} />
+          <Route path='/profile' render={ () => <Profile posts={props.AppState.profilePage} />} />
         </div>
         <Footer />
       </div>
