@@ -17,7 +17,7 @@ function App(props) {
         <Navbar />
         <div>
           <Route path='/dialogs' render={ () => <Dialogs messagePages={props.AppState.messagesPage} />} />
-          <Route path='/profile' render={ () => <Profile posts={props.AppState.profilePage} />} />
+          <Route path='/profile' render={ () => <Profile posts={props.AppState.profilePage} addPost={props.addPost} />} />
         </div>
         <Footer />
       </div>

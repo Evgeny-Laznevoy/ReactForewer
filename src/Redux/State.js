@@ -25,4 +25,15 @@ let State = {
     }
 }
 
+export let addPost = (postMessage) => {
+
+    let lastId = State.profilePage.posts.length
+
+    let newPost = {
+        id:lastId++,
+        post: postMessage
+    }
+    State.profilePage.posts.push(newPost)
+}
+
 export default State
