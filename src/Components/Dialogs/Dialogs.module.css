@@ -10,7 +10,7 @@
 }
 
 .dialog{
-    
+   
 }
 
 .messages a{
@@ -19,4 +19,8 @@
 
 .message{
 
+}
+
+.textarea{
+    margin: 10px; 
 }
