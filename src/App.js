@@ -14,7 +14,7 @@ function App(props) {
         <Header />
         <Navbar />
         <div>
-          <Route path='/dialogs' render={ () => <Dialogs messagePages={props.AppState.messagesPage} />} />
+          <Route path='/dialogs' render={ () => <Dialogs dispatch={props.dispatch} store={props.store}/>} />
           <Route path='/profile' render={ () => <Profile posts={props.AppState.profilePage} dispatch={props.dispatch} />} />
         </div>
         <Footer />

@@ -1,7 +1,6 @@
-const ADD_POST = 'ADD-POST'
-const SEND_MESSAGE = 'SEND_MESSAGE'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
+import dialogsReducer from '../Redux/dialogs-reducer'
+import mainReducer from './main-reducer'
+import profileReducer from './profile-reducer'
 
 let store = {
     _State: {
@@ -29,6 +28,9 @@ let store = {
                 { id: 2, post: 'hi!!!' }
             ],
             newPostText: 'evgen purgen'
+        },
+        mainPage: {
+
         }
     },
 
@@ -44,35 +46,19 @@ let store = {
         this._callSubscriber = observer
     },
 
-    dispatch(action) {
-        if (action.type === ADD_POST) {
-            let lastId = this._State.profilePage.posts.length
+    // lastId(param){
+    //     return param.length
+    // },
 
-            let newPost = {
-                id: lastId++,
-                post: this._State.profilePage.newPostText
-            }
-            this._State.profilePage.posts.push(newPost)
-            this._State.profilePage.newPostText = ''
-            this._callSubscriber(this._State)
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._State.profilePage.newPostText = action.newText
-            this._callSubscriber(this._State)
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this._State.messagesPage.newMessageBody = action.body
-            this._callSubscriber(this._State)
-        }
+    dispatch(action) {
+        this._State.messagesPage = dialogsReducer(this._State.messagesPage, action)
+        this._State.profilePage = profileReducer(this._State.profilePage, action)
+        this._State.mainPage = mainReducer(this._State.mainPage, action)
+        this._callSubscriber(this._State)
     }
 }
 
-
-export const addPostActionCreator = () => ({ type: 'ADD-POST' })
-
-export const updateNewPostTextActionCreator = (text) =>
-    ({ type: 'UPDATE-NEW-POST-TEXT', newText: text })
-
-
-    export default store
+export default store
 
 window.store = store
 
