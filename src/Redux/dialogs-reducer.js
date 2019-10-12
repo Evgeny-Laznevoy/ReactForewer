@@ -1,21 +1,45 @@
 const SEND_MESSAGE = 'SEND_MESSAGE'
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 
-const dialogsReducer = (state, action) => {
+let initialState = {
+    messagesPage: {
+        dialogs: [
+            { id: 1, name: 'Dima' },
+            { id: 2, name: 'Evgen' },
+            { id: 3, name: 'Natali' },
+            { id: 4, name: 'Fill' },
+            { id: 5, name: 'Sasha' }
+        ],
+        messages: [
+            { id: 1, message: 'Hi' },
+            { id: 2, message: 'How are you?' },
+            { id: 3, message: 'Ho Ho Ho' },
+            { id: 4, message: 'Yo' },
+            { id: 5, message: 'Hello' }
+        ],
+        newMessageBody: ' '
+
+    }
+}
+
+const dialogsReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body
-            return state
-        case SEND_MESSAGE:
-            let lastId = state.messages.length
-            // let body = this._State.messagesPage.newMessageBody
-            let newMessage = {
-                id: lastId++,
-                message: state.newMessageBody
+            return {
+                ...state,
+                newMessageBody: action.body
             }
-            state.messages.push(newMessage)
-            state.newMessageBody = ''
+        case SEND_MESSAGE:
+            let body = state.newMessageBody
+            let lastId = state.messagesPage.messages.length
+            lastId++
+            debugger
+            return {
+                ...state,
+                newMessageBody:'',
+                messages: [...state.messagesPage.messages, {id:lastId, message:body}]
+            };
         default:
             return state
     }
