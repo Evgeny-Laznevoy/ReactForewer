@@ -2,24 +2,21 @@ const SEND_MESSAGE = 'SEND_MESSAGE'
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
 
 let initialState = {
-    messagesPage: {
-        dialogs: [
-            { id: 1, name: 'Dima' },
-            { id: 2, name: 'Evgen' },
-            { id: 3, name: 'Natali' },
-            { id: 4, name: 'Fill' },
-            { id: 5, name: 'Sasha' }
-        ],
-        messages: [
-            { id: 1, message: 'Hi' },
-            { id: 2, message: 'How are you?' },
-            { id: 3, message: 'Ho Ho Ho' },
-            { id: 4, message: 'Yo' },
-            { id: 5, message: 'Hello' }
-        ],
-        newMessageBody: ' '
-
-    }
+    dialogs: [
+        { id: 1, name: 'Dima' },
+        { id: 2, name: 'Evgen' },
+        { id: 3, name: 'Natali' },
+        { id: 4, name: 'Fill' },
+        { id: 5, name: 'Sasha' }
+    ],
+    messages: [
+        { id: 1, message: 'Hi' },
+        { id: 2, message: 'How are you?' },
+        { id: 3, message: 'Ho Ho Ho' },
+        { id: 4, message: 'Yo' },
+        { id: 5, message: 'Hello' }
+    ],
+    newMessageBody: ''
 }
 
 const dialogsReducer = (state = initialState, action) => {
@@ -32,13 +29,13 @@ const dialogsReducer = (state = initialState, action) => {
             }
         case SEND_MESSAGE:
             let body = state.newMessageBody
-            let lastId = state.messagesPage.messages.length
+            let lastId = state.messages.length
             lastId++
             debugger
             return {
                 ...state,
-                newMessageBody:'',
-                messages: [...state.messagesPage.messages, {id:lastId, message:body}]
+                newMessageBody: '',
+                messages: [...state.messages, { id: lastId, message: body }]
             };
         default:
             return state

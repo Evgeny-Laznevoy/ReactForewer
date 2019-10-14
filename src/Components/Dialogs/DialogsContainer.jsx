@@ -1,4 +1,3 @@
-import React from 'react'
 import {connect} from 'react-redux'
 import {updateNewMessageBodyCreator, sendMessageCreator} from "../../Redux/dialogs-reducer"
 import Dialogs from './Dialogs'
@@ -18,8 +17,9 @@ import Dialogs from './Dialogs'
 // }
 
 let mapStateToProps = (state) => {
+    debugger
     return {
-        dialogsPage: state.messagesPage
+        dialogsPage: state
         // newMessageBody: state.messagesPage.messagesPage.newMessageBody
     }
 }
