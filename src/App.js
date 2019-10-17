@@ -9,7 +9,6 @@ import DialogsContainer from './Components/Dialogs/DialogsContainer';
 import UsersContainer from './Components/Users/UsersContainer';
 
 function App(props) {
-  debugger
   return (
       <div className="App">
         <Header />
