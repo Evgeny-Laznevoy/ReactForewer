@@ -19,7 +19,8 @@ import Dialogs from './Dialogs'
 let mapStateToProps = (state) => {
     debugger
     return {
-        dialogsPage: state
+        dialogsPage: state,
+        isAuth: state.auth.isAuth
         // newMessageBody: state.messagesPage.messagesPage.newMessageBody
     }
 }
