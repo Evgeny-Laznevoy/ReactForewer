@@ -16,7 +16,7 @@ function App(props) {
         <Navbar />
         <div>
           <Route path='/dialogs' render={ () => <DialogsContainer store={props.store}/>} />
-          <Route path='/profile/:userId' render={ () => <ProfileContainer />} />
+          <Route path='/profile/:userId?' render={ () => <ProfileContainer />} />
           <Route path='/users' render={ () => <UsersContainer/>} />
           <Route path='/login' render={ () => <LoginPage/>} />
         </div>
